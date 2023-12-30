@@ -4,6 +4,5 @@ fn main() {
     let last = x.last().unwrap();
     x.push(4);
 
-
     println!("{:?}", last);
 }
