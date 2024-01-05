@@ -10,11 +10,15 @@ struct LoginRequest {
 
 // Define a handler for the login route
 async fn login(info: web::Json<LoginRequest>) -> impl Responder {
-    // You can access the username and password here
-    // For example: info.username and info.password
+    // Predefined credentials for demonstration purposes
+    let expected_username = "admin";
+    let expected_password = "password123";
 
-    // Respond with a simple message
-    HttpResponse::Ok().body(format!("Received login for user: {}", info.username))
+    // Check credentials
+    let are_credentials_valid = info.username == expected_username && info.password == expected_password;
+
+    // Respond with a boolean value
+    HttpResponse::Ok().json(are_credentials_valid)
 }
 
 #[actix_web::main]
