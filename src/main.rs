@@ -9,7 +9,7 @@ struct LoginRequest {
     password: String,
 }
 
-// Define a struct for the response
+// Define a struct for the response data
 #[derive(Serialize)]
 struct LoginResponse {
     valid_credentials: bool,
